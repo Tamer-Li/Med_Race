@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmpqy2llrslaa"]
+
+[ext_resource type="Texture2D" uid="uid://cm8fkyipe2u8v" path="res://assets/npc/sedan.png" id="1_53suc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo42q"]
+atlas = ExtResource("1_53suc")
+region = Rect2(0, 0, 29, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qp60l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo42q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sabt7"]
+size = Vector2(29, 13)
+
+[node name="Npc2" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qp60l")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sabt7")
