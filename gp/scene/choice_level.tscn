@@ -1,45 +1,33 @@
-[gd_scene format=3 uid="uid://o3647jb8wvym"]
+[gd_scene load_steps=2 format=3 uid="uid://o3647jb8wvym"]
+
+[ext_resource type="Script" path="res://src/choice_level.gd" id="1_s1mm6"]
 
 [node name="Choice_Level" type="Node2D"]
+script = ExtResource("1_s1mm6")
 
-[node name="Button" type="Button" parent="."]
+[node name="Back" type="Button" parent="."]
 offset_left = 13.0
 offset_top = 22.0
-offset_right = 153.0
-offset_bottom = 64.0
+offset_right = 429.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 60
 text = "Назад"
 
 [node name="Level_1" type="Button" parent="."]
-offset_left = 144.0
-offset_top = 193.0
-offset_right = 206.0
-offset_bottom = 250.0
+offset_left = 729.0
+offset_top = 462.0
+offset_right = 867.0
+offset_bottom = 602.0
+theme_override_font_sizes/font_size = 60
 text = "1"
 
 [node name="Level_2" type="Button" parent="."]
-offset_left = 234.0
-offset_top = 193.0
-offset_right = 296.0
-offset_bottom = 250.0
+offset_left = 907.0
+offset_top = 462.0
+offset_right = 1045.0
+offset_bottom = 602.0
+theme_override_font_sizes/font_size = 60
 text = "2"
 
-[node name="Level_3" type="Button" parent="."]
-offset_left = 322.0
-offset_top = 193.0
-offset_right = 384.0
-offset_bottom = 250.0
-text = "3"
-
-[node name="Level_4" type="Button" parent="."]
-offset_left = 410.0
-offset_top = 193.0
-offset_right = 472.0
-offset_bottom = 250.0
-text = "4"
-
-[node name="Level_5" type="Button" parent="."]
-offset_left = 498.0
-offset_top = 193.0
-offset_right = 560.0
-offset_bottom = 250.0
-text = "5"
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Level_1" to="." method="_on_level_1_pressed"]
