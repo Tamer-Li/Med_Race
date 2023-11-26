@@ -1,0 +1,154 @@
+[gd_scene load_steps=7 format=3 uid="uid://be8lium0kcvwo"]
+
+[ext_resource type="Script" path="res://src/Instruction.gd" id="1_7yoc8"]
+[ext_resource type="PackedScene" uid="uid://dtxa1bbb6txni" path="res://scene/level_1.tscn" id="2_3rrga"]
+[ext_resource type="Texture2D" uid="uid://cetjr7b2fqynk" path="res://assets/menu/persons/Driver.jpg" id="3_cuuu7"]
+[ext_resource type="Texture2D" uid="uid://mhu6eabsx05y" path="res://assets/menu/buttons/PNG/metalPanel_yellow.png" id="4_sxnrf"]
+[ext_resource type="Texture2D" uid="uid://dnh4ak0d60jp5" path="res://assets/menu/arrowSilver_left.png" id="5_0grwl"]
+[ext_resource type="Texture2D" uid="uid://dfxhi2ej56hfn" path="res://assets/menu/arrowSilver_right.png" id="6_ob23w"]
+
+[node name="Instruction" type="Node2D"]
+script = ExtResource("1_7yoc8")
+
+[node name="Level_1" parent="." instance=ExtResource("2_3rrga")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ins1" type="Node2D" parent="CanvasLayer"]
+position = Vector2(-125, 0)
+
+[node name="Driver" type="Sprite2D" parent="CanvasLayer/ins1"]
+position = Vector2(1719, 224)
+scale = Vector2(0.0745715, 0.0745715)
+texture = ExtResource("3_cuuu7")
+
+[node name="MetalPanelYellow" type="Sprite2D" parent="CanvasLayer/ins1"]
+position = Vector2(1096, 886)
+scale = Vector2(10.68, 3.04)
+texture = ExtResource("4_sxnrf")
+
+[node name="Label" type="Label" parent="CanvasLayer/ins1"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 417.0
+offset_top = 671.0
+offset_right = 1768.0
+offset_bottom = 1175.0
+theme_override_font_sizes/font_size = 50
+text = "
+“-Значит так Малой.
+Нажимаешь “->”, едешь прямо, 
+“<-” соответственно тормозишь, 
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Petr" type="Label" parent="CanvasLayer/ins1"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 417.0
+offset_top = 671.0
+offset_right = 1768.0
+offset_bottom = 881.0
+theme_override_font_sizes/font_size = 50
+text = "Петрович
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ins2" type="Node2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(-125, 0)
+
+[node name="Driver" type="Sprite2D" parent="CanvasLayer/ins2"]
+position = Vector2(1719, 224)
+scale = Vector2(0.0745715, 0.0745715)
+texture = ExtResource("3_cuuu7")
+
+[node name="MetalPanelYellow" type="Sprite2D" parent="CanvasLayer/ins2"]
+position = Vector2(1096, 886)
+scale = Vector2(10.68, 3.04)
+texture = ExtResource("4_sxnrf")
+
+[node name="Label" type="Label" parent="CanvasLayer/ins2"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 417.0
+offset_top = 671.0
+offset_right = 1768.0
+offset_bottom = 1175.0
+theme_override_font_sizes/font_size = 50
+text = "Нажимая “вверх-вниз”, 
+повороты “вправо-влево”"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Petr" type="Label" parent="CanvasLayer/ins2"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 417.0
+offset_top = 671.0
+offset_right = 1768.0
+offset_bottom = 881.0
+theme_override_font_sizes/font_size = 50
+text = "Петрович
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ins3" type="Node2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(-125, 0)
+
+[node name="Driver" type="Sprite2D" parent="CanvasLayer/ins3"]
+position = Vector2(1719, 224)
+scale = Vector2(0.0745715, 0.0745715)
+texture = ExtResource("3_cuuu7")
+
+[node name="MetalPanelYellow" type="Sprite2D" parent="CanvasLayer/ins3"]
+position = Vector2(1096, 886)
+scale = Vector2(10.68, 3.04)
+texture = ExtResource("4_sxnrf")
+
+[node name="Label" type="Label" parent="CanvasLayer/ins3"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 417.0
+offset_top = 671.0
+offset_right = 1768.0
+offset_bottom = 1175.0
+theme_override_font_sizes/font_size = 50
+text = "Садись, а я пока посплю. 
+И сильно не разгоняйся, 
+там кажется тормозов нету”"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Petr" type="Label" parent="CanvasLayer/ins3"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 417.0
+offset_top = 671.0
+offset_right = 1768.0
+offset_bottom = 881.0
+theme_override_font_sizes/font_size = 50
+text = "Петрович
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 31.0
+offset_top = 807.0
+offset_right = 381.0
+offset_bottom = 1041.0
+icon = ExtResource("5_0grwl")
+flat = true
+expand_icon = true
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+offset_left = 1655.0
+offset_top = 807.0
+offset_right = 2005.0
+offset_bottom = 1041.0
+icon = ExtResource("6_ob23w")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]

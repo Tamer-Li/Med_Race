@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cw8yg1vxcifvw"]
+
+[ext_resource type="Texture2D" uid="uid://cxws44j0acauo" path="res://assets/npc/sedan_blue.png" id="1_2t3xh"]
+[ext_resource type="Script" path="res://src/npc_1.gd" id="1_t1dpu"]
+[ext_resource type="Texture2D" uid="uid://bfgctt5kt6k8s" path="res://assets/npc/sedan_blue (1).png" id="2_rna8a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plurb"]
+atlas = ExtResource("1_2t3xh")
+region = Rect2(0, 0, 29, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkm71"]
+atlas = ExtResource("2_rna8a")
+region = Rect2(0, 0, 29, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a5osf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plurb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkm71")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hu1f"]
+size = Vector2(29, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xvlm"]
+size = Vector2(29, 13)
+
+[node name="Npc1" type="CharacterBody2D"]
+script = ExtResource("1_t1dpu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a5osf")
+frame_progress = 0.170499
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7hu1f")
+
+[node name="LifeSpan" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_5xvlm")
+
+[connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
