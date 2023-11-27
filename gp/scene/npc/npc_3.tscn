@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://ds1p0nqx0u4cf"]
+
+[ext_resource type="Script" path="res://src/npc3.gd" id="1_4t553"]
+[ext_resource type="Texture2D" uid="uid://dgb0h88b2dq0u" path="res://assets/npc/sports_red.png" id="2_kq8g7"]
+[ext_resource type="Texture2D" uid="uid://rhc6qwbfe5m0" path="res://assets/npc/sports_red (1).png" id="3_e5k7f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt5sp"]
+atlas = ExtResource("2_kq8g7")
+region = Rect2(0, 0, 33, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg53m"]
+atlas = ExtResource("3_e5k7f")
+region = Rect2(0, 0, 33, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8a35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt5sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg53m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2j0b"]
+size = Vector2(33, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo3pg"]
+size = Vector2(33, 12)
+
+[node name="npc3" type="CharacterBody2D"]
+script = ExtResource("1_4t553")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n8a35")
+frame_progress = 0.611538
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w2j0b")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_lo3pg")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

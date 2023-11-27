@@ -5,7 +5,7 @@ const SPEED = 1000.0
 
 func _physics_process(delta):
 	$AnimatedSprite2D.play("default")
-	velocity.x = -SPEED * delta * 10
+	velocity.x = SPEED * delta * 10
 
 	move_and_slide()
 
