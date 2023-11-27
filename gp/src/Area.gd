@@ -20,6 +20,7 @@ func _physics_process(_delta):
 		var x = 9600 + i * 1920
 		random_scene.randomize()
 		select_scene = random_scene.randi_range(0, module.size()-1)
+		print(select_scene)
 		var tmp = module[select_scene].instantiate()
 		tmp.position.x = x
 		add_child(tmp)

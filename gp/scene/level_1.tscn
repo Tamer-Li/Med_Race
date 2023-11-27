@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dtxa1bbb6txni"]
+[gd_scene load_steps=16 format=3 uid="uid://dtxa1bbb6txni"]
 
 [ext_resource type="Script" path="res://src/level_1.gd" id="1_0jiqt"]
 [ext_resource type="PackedScene" uid="uid://cw8yg1vxcifvw" path="res://scene/npc/npc_1.tscn" id="1_h2evt"]
@@ -10,14 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dmpqy2llrslaa" path="res://scene/npc/npc_2.tscn" id="3_ytnp5"]
 [ext_resource type="PackedScene" uid="uid://c00ueyylvh8gg" path="res://scene/title/title_3.tscn" id="4_aav5i"]
 [ext_resource type="PackedScene" uid="uid://bww6clv3adxfa" path="res://scene/title/title_4.tscn" id="5_34jje"]
-[ext_resource type="Script" path="res://src/NPC.gd" id="8_tommo"]
-[ext_resource type="PackedScene" uid="uid://s8p14hy86xvy" path="res://scene/npc/npc_5.tscn" id="9_35284"]
-[ext_resource type="PackedScene" uid="uid://ly0aglfs74xf" path="res://scene/npc/npc_6.tscn" id="10_bmlon"]
 [ext_resource type="Texture2D" uid="uid://i2fw0ure5vsg" path="res://assets/menu/buttons/PNG/metalPanel.png" id="11_e3hah"]
-[ext_resource type="PackedScene" uid="uid://brxfc86cr62b4" path="res://scene/npc/npc_7.tscn" id="11_klbdp"]
 [ext_resource type="Texture2D" uid="uid://b6syvmqwrgxdf" path="res://assets/menu/buttons/PNG/glassPanel_corners.png" id="12_70bjk"]
-[ext_resource type="PackedScene" uid="uid://caxmh4kokhfty" path="res://scene/npc/npc_4.tscn" id="12_jkb8u"]
-[ext_resource type="PackedScene" uid="uid://ds1p0nqx0u4cf" path="res://scene/npc/npc_3.tscn" id="13_m51f0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ob6js"]
 texture = ExtResource("1_usfkm")
@@ -3153,13 +3147,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = \"SPEED: \" + str($\"../../Player\".SPEED / 1000) + \" км/ч\"
+	text = \"SPEED: \" + str($\"../../Player\".SPEED / 25) + \" км/ч\"
 "
 
 [node name="Level_1" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_0jiqt")
-metadata/_edit_vertical_guides_ = []
 
 [node name="Area" type="Node2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -3188,11 +3181,21 @@ autostart = true
 
 [node name="NPC" type="Node2D" parent="."]
 scale = Vector2(2, 2)
-script = ExtResource("8_tommo")
 
-[node name="Spawn" type="Timer" parent="NPC"]
-wait_time = 0.4
-autostart = true
+[node name="Npc5" parent="NPC" instance=ExtResource("1_h2evt")]
+position = Vector2(1043, 107.75)
+
+[node name="Npc4" parent="NPC" instance=ExtResource("3_ytnp5")]
+position = Vector2(916.75, 192.25)
+
+[node name="Npc1" parent="NPC" instance=ExtResource("1_h2evt")]
+position = Vector2(1821.75, 105.25)
+
+[node name="Npc3" parent="NPC" instance=ExtResource("3_ytnp5")]
+position = Vector2(1678.25, 166.25)
+
+[node name="Npc2" parent="NPC" instance=ExtResource("3_ytnp5")]
+position = Vector2(380.75, 187.75)
 
 [node name="Player" parent="." instance=ExtResource("2_qn7ug")]
 position = Vector2(50.5, 259)
@@ -3262,81 +3265,6 @@ offset_bottom = 115.0
 theme_override_font_sizes/font_size = 50
 text = "Выход"
 
-[node name="npcsp1" type="Node2D" parent="."]
-scale = Vector2(2, 2)
-
-[node name="Npc1" parent="npcsp1" instance=ExtResource("1_h2evt")]
-position = Vector2(380.5, 162.5)
-
-[node name="Npc2" parent="npcsp1" instance=ExtResource("3_ytnp5")]
-position = Vector2(1321, 165.25)
-
-[node name="npc3" parent="npcsp1" instance=ExtResource("13_m51f0")]
-position = Vector2(1616.25, 105)
-
-[node name="npc_4" parent="npcsp1" instance=ExtResource("12_jkb8u")]
-position = Vector2(611, 196)
-
-[node name="npc_5" parent="npcsp1" instance=ExtResource("9_35284")]
-position = Vector2(1056.75, 166.5)
-
-[node name="npc_6" parent="npcsp1" instance=ExtResource("10_bmlon")]
-position = Vector2(1379.25, 129.25)
-
-[node name="npc_7" parent="npcsp1" instance=ExtResource("11_klbdp")]
-position = Vector2(936.25, 103.75)
-
-[node name="npcsp2" type="Node2D" parent="."]
-position = Vector2(2881, -2)
-scale = Vector2(2, 2)
-
-[node name="Npc1" parent="npcsp2" instance=ExtResource("1_h2evt")]
-position = Vector2(380.5, 162.5)
-
-[node name="Npc2" parent="npcsp2" instance=ExtResource("3_ytnp5")]
-position = Vector2(1321, 165.25)
-
-[node name="npc3" parent="npcsp2" instance=ExtResource("13_m51f0")]
-position = Vector2(1616.25, 105)
-
-[node name="npc_4" parent="npcsp2" instance=ExtResource("12_jkb8u")]
-position = Vector2(611, 196)
-
-[node name="npc_5" parent="npcsp2" instance=ExtResource("9_35284")]
-position = Vector2(1056.75, 166.5)
-
-[node name="npc_6" parent="npcsp2" instance=ExtResource("10_bmlon")]
-position = Vector2(1379.25, 129.25)
-
-[node name="npc_7" parent="npcsp2" instance=ExtResource("11_klbdp")]
-position = Vector2(936.25, 103.75)
-
-[node name="npcsp3" type="Node2D" parent="."]
-position = Vector2(4444, -0.5)
-scale = Vector2(2, 2)
-
-[node name="Npc1" parent="npcsp3" instance=ExtResource("1_h2evt")]
-position = Vector2(380.5, 162.5)
-
-[node name="Npc2" parent="npcsp3" instance=ExtResource("3_ytnp5")]
-position = Vector2(1321, 165.25)
-
-[node name="npc3" parent="npcsp3" instance=ExtResource("13_m51f0")]
-position = Vector2(1616.25, 105)
-
-[node name="npc_4" parent="npcsp3" instance=ExtResource("12_jkb8u")]
-position = Vector2(611, 196)
-
-[node name="npc_5" parent="npcsp3" instance=ExtResource("9_35284")]
-position = Vector2(1056.75, 166.5)
-
-[node name="npc_6" parent="npcsp3" instance=ExtResource("10_bmlon")]
-position = Vector2(1379.25, 129.25)
-
-[node name="npc_7" parent="npcsp3" instance=ExtResource("11_klbdp")]
-position = Vector2(936.25, 103.75)
-
 [connection signal="timeout" from="Timer" to="Area" method="_on_timer_timeout"]
-[connection signal="timeout" from="NPC/Spawn" to="NPC" method="_on_spawn_timeout"]
 [connection signal="pressed" from="CanvasLayer/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="CanvasLayer/Quit" to="." method="_on_quit_pressed"]

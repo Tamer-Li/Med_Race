@@ -2,23 +2,23 @@ extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
 
-var SPEED: int = 30000.0
-const JUMP: int = 30000.0
+var SPEED: int = 300.0
+const JUMP: int = 300.0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	anim.play("default")
 	
-	velocity.x = SPEED * delta
+	velocity.x = SPEED
 	if Input.is_action_pressed("ui_right"):
-		SPEED += 500
-	elif Input.is_action_pressed("ui_left") and SPEED > 30000:
-		SPEED -= 1500
+		SPEED += 5
+	elif Input.is_action_pressed("ui_left") and SPEED > 300:
+		SPEED -= 15
 	else:
 		SPEED = SPEED
 	
 	var directionY = Input.get_axis("ui_up", "ui_down")
 	if directionY:
-		velocity.y = directionY * JUMP * delta
+		velocity.y = directionY * JUMP
 	else:
 		velocity.y = move_toward(velocity.y, 0, JUMP)
 
