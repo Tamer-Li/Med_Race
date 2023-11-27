@@ -38,12 +38,13 @@ script = ExtResource("1_sufd5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qp60l")
 frame_progress = 0.944772
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sabt7")
 
 [node name="LifeSpan" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 10.0
 one_shot = true
 autostart = true
 
