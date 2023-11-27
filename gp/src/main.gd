@@ -13,11 +13,14 @@ func _process(delta):
 
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://scene/comics_1.tscn")
+	$AudioStreamPlayer2D2.play()
 
 
 func _on_quit_pressed():
 	get_tree().exit()
+	$AudioStreamPlayer2D2.play()
 
 
 func _on_info_pressed():
 	get_tree().change_scene_to_file("res://scene/info.tscn")
+	$AudioStreamPlayer2D2.play()

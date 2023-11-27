@@ -13,7 +13,9 @@ func _process(delta):
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://scene/comics_1.tscn")
+	$AudioStreamPlayer2D.play()
 
 
 func _on_push_pressed():
 	get_tree().change_scene_to_file("res://scene/instruction.tscn")
+	$AudioStreamPlayer2D.play()

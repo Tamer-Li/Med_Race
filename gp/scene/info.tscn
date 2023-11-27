@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwndjdec7frxb"]
+[gd_scene load_steps=9 format=3 uid="uid://cwndjdec7frxb"]
 
 [ext_resource type="Script" path="res://src/Info.gd" id="1_3howm"]
 [ext_resource type="Texture2D" uid="uid://clxmv01f4w5r6" path="res://assets/menu/2694.jpg" id="2_quoqr"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://biglwfte7hjr0" path="res://assets/menu/buttons/PNG/metalPanel_blue.png" id="4_yelfx"]
 [ext_resource type="Texture2D" uid="uid://cwi3geirh3bp3" path="res://assets/menu/buttons/PNG/metalPanel_green.png" id="5_f4s56"]
 [ext_resource type="Texture2D" uid="uid://bycyf5lub3fwa" path="res://assets/menu/buttons/PNG/metalPanel_red.png" id="6_nxeh2"]
+[ext_resource type="AudioStream" uid="uid://dgvyx4t44ugux" path="res://assets/sound/Фоновая музыка. Главное меню/1b13f630f40cb25.mp3" id="7_4dcdd"]
+[ext_resource type="AudioStream" uid="uid://cxrh2gmhaafvs" path="res://assets/sound/Клик в меню/Menu Selection Click.wav" id="8_vgw3r"]
 
 [node name="Info" type="Node2D"]
 script = ExtResource("1_3howm")
@@ -110,5 +112,12 @@ text = "Тамерлан
 Лиджиев"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_4dcdd")
+autoplay = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_vgw3r")
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

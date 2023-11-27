@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgvyx4t44ugux"
+path="res://.godot/imported/1b13f630f40cb25.mp3-1280aeff835668d70b8b80590178db8c.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/Фоновая музыка. Главное меню/1b13f630f40cb25.mp3"
+dest_files=["res://.godot/imported/1b13f630f40cb25.mp3-1280aeff835668d70b8b80590178db8c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
